@@ -53,7 +53,7 @@ def test_delete_file_calls_delete_with_correct_url(api_client):
 def test_delete_file_404_is_silently_ignored(api_client):
     api_client._session.delete.return_value.status_code = 404
 
-    api_client.delete_file("ghost.txt")  # should not raise
+    api_client.delete_file("ghost.txt")
 
     api_client._session.delete.return_value.raise_for_status.assert_not_called()
 
